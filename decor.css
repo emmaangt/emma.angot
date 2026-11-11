@@ -44,19 +44,6 @@ mark{--s:rgba(233,160,166,.7);color:inherit;padding:.05em .35em;margin:0 -.1em;b
 mark.bleu{--s:rgba(159,179,209,.75)}
 mark.rouge{--s:var(--rouge);color:var(--blanc)}
 
-/* ===== 7. Page contact : texte d'accroche et liens avec icônes SVG ===== */
-.contact .wrap>h2.accroche{font-size:clamp(1.8rem,4.5vw,3rem);max-width:24ch;margin-bottom:1.5rem}
-.contact .wrap>h2.accroche::before{display:none}
-.contact-infos{display:block;width:100%;margin-top:2.5rem}
-.lien-contact svg{flex:none;width:1.5em;height:1.5em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.lien-contact{display:inline-flex;align-items:center;gap:.8rem;max-width:100%;color:var(--ciel);text-decoration:none;transition:color .3s}
-.lien-contact:hover{color:var(--rose)}
-.lien-contact.mail{display:flex;width:fit-content;margin-bottom:.7rem;font:italic clamp(1.1rem,3vw,1.5rem) var(--titre);overflow-wrap:anywhere}
-.lien-contact.mail svg{width:1.1em;height:1.1em}
-.contact-liste{display:flex;flex-wrap:wrap;gap:1.2rem 2.5rem;list-style:none;padding:0;margin:1.8rem 0 0}
-.contact-liste .lien-contact{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;padding-bottom:.25rem;border-bottom:1px solid var(--ciel)}
-.contact-liste .lien-contact:hover{border-color:var(--rose)}
-
 /* ===== 8. Pastille stage et annonce mobile ===== */
 .annonce{display:block;padding:.65rem 1rem;background:var(--rouge);color:var(--blanc);text-align:center;font-size:.78rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:background .3s}
 .annonce:hover{background:var(--marine)}
