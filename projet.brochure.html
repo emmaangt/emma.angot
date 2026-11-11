@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="decor.css">
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 <main class="projet-page">
   <section>
     <div class="wrap">
-      <a href="index.html#projets">Retour aux projets</a>
+      <a class="lien-retour" href="index.html#brochure-danse">Retour aux projets</a>
       <h1>Brochure</h1>
       <div class="infos">
         <div><b>Année</b>2026</div>
@@ -33,13 +34,16 @@
         <div><b>Outils</b>InDesign</div>
         <div><b>Mon rôle</b>Conception et réalisation</div>
       </div>
-      <p>Ce projet avait pour but de creer une brochure en 8pages minimum sur un sujet qui nous tenait à coeur et sur lequel on pourrait apporter des connnaissances à nos camarades. J'ai choisi la dans contemporaine, j'ai alors crée toute une identité visuelle autour de la danse avce un fil conducteur.</p>
+      <p>Ce projet consistait à transmettre des connaissances à nos pairs à travers une brochure d'au moins 8 pages sur un sujet personnel. J'ai choisi la danse contemporaine, pour laquelle j'ai défini un fil conducteur afin d'orienter toute l'identité visuelle. Après avoir assemblé et mis en page l'ensemble sur InDesign et Photoshop, j'ai préparé les fichiers techniques en haute définition avec repères de coupe pour l'envoi à l'imprimeur.</p>
 
       <div class="visuels">
-        <!-- Remplace chaque bloc par : <div class="visuel"><img src="images/mon-visuel.jpg" alt="Description du visuel"></div> -->
+        <!-- Remplace chaque bloc par : <div class="visuel"><img src="images/mon-visuel.webp" alt="Description du visuel"></div> -->
+        <div class="pdf-viewer" data-pdf="pdf/BrochureHD.pdf"></div>
         <div class="visuel"></div>
         <div class="visuel"></div>
-        <div class="visuel"></div>
+      </div>
+      <div class="retour-bas">
+        <a class="lien-retour" href="index.html#brochure-danse">Retour aux projets</a>
       </div>
     </div>
   </section>
@@ -48,6 +52,7 @@
 <footer>
   <div class="wrap">© 2026 Emma Angot</div>
 </footer>
-
+<script src="visionneuse.js"></script>
+<script src="filtres.js"></script>
 </body>
 </html>
