@@ -2,21 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root{
-  --blanc:#f4f5f8;   /* papier, blanc légèrement bleuté */
+  --blanc:#f4f5f8;
   --gris:#7d8596;
-  --marine:#22334c;  /* bleu principal */
-  --ciel:#9fb3d1;    /* bleu clair */
-  --rouge:#b8434e;   /* rouge, à doser */
-  --rose:#e9a0a6;    /* rouge léger, pour les touches */
-  --noir:#141c2b;    /* encre bleu nuit */
+  --marine:#22334c;
+  --ciel:#9fb3d1;
+  --rouge:#b8434e;
+  --rose:#e9a0a6;
+  --noir:#141c2b;
   --filet:rgba(20,28,43,.2);
   --titre:'Playfair Display',Georgia,serif;
   --texte:'Inter',system-ui,sans-serif;
+  --script:'Pinyon Script','Snell Roundhand',cursive;
+  --grain:.2;
 }
+
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--blanc);color:var(--noir);font:300 1.05rem/1.7 var(--texte);-webkit-font-smoothing:antialiased;counter-reset:sec}
-img{max-width:600px;max-height:800px;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 ::selection{background:var(--marine);color:var(--blanc)}
 :focus-visible{outline:2px solid var(--rouge);outline-offset:4px}
@@ -39,50 +42,27 @@ nav a{text-decoration:none;transition:all .3s}
 nav a:hover{font-family:var(--titre);font-style:italic;color:var(--rouge)}
 nav a[aria-current="page"]{font-family:var(--titre);font-style:italic;color:var(--rouge)}
 
-/* ===== Style des filtres ===== */
-.filtres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 2rem 0;
-}
+/* Boutons */
+.btn{display:inline-block;margin-top:2.5rem;padding:1rem 2rem;border:1px solid var(--marine);background:transparent;color:var(--marine);font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn:hover{background:var(--marine);color:var(--blanc)}
 
-.filtres button {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid var(--marine, #001f3f);
-  background: transparent;
-  color: var(--marine, #001f3f);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Changement d'état au survol et lorsque le filtre est actif */
-.filtres button:hover,
-.filtres button[aria-pressed="true"] {
-  background: var(--marine, #001f3f);
-  color: var(--blanc, #ffffff);
-}
-
-/* Accueil : titre monumental, centré */
-.hero{min-height:88vh;display:flex;align-items:center;text-align:center;padding:5rem 0;border-top:0}
-.hero h1{font-size:clamp(4rem,14vw,10rem);line-height:.95;letter-spacing:-.03em;margin-bottom:2rem}
-.hero h1::after{content:"";display:block;width:5rem;height:3px;background:var(--rouge);margin:2rem auto 0}
+/* Accueil (Version VF) */
+.hero{min-height:88svh;display:flex;align-items:center;text-align:center;padding:5rem 0;border-top:0}
+.hero .wrap{width:100%}
+.hero h1{display:flex;flex-direction:column;align-items:center;font-size:1rem;letter-spacing:0;margin-bottom:2rem}
+.surtitre{position:relative;z-index:2;font-family:var(--script);font-weight:400;font-size:clamp(2.4rem,8.5vw,5.2rem);line-height:1;letter-spacing:0;color:var(--rouge);transform:rotate(-4deg);margin-bottom:-.35em}
+.titre-portfolio{font-family:var(--texte);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(2.4rem,12vw,9.5rem);line-height:1;color:var(--noir)}
+.hero .nom{margin:0 auto 1.5rem;font-size:.85rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
 .hero p{margin:0 auto;font-size:1.25rem}
 
-/* Projets : section sombre, grille asymétrique */
+/* Projets */
 #projets{background:var(--marine);color:var(--blanc)}
 #projets>.wrap>h2::before{color:var(--rose)}
 .grille{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem 1.5rem;align-items:start}
 .projet{text-decoration:none;display:block}
-.projet:first-child{grid-column:span 2}
-.forme{aspect-ratio:4/5;overflow:hidden;margin-bottom:1.2rem;background:var(--noir)}
-.projet:first-child .forme{aspect-ratio:16/10.2}
-.forme img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.forme{aspect-ratio:4/5;overflow:hidden;margin-bottom:1.2rem;background:var(--noir);transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.forme img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.projet:hover .forme{transform:rotate(-1.5deg)}
 .projet:hover .forme img{transform:scale(1.05)}
 .projet:nth-child(4n+2) .forme{background:var(--ciel)}
 .projet:nth-child(4n+3) .forme{background:var(--gris)}
@@ -96,26 +76,41 @@ nav a[aria-current="page"]{font-family:var(--titre);font-style:italic;color:var(
 .duo h3{font-size:1.3rem;margin-bottom:.8rem}
 .duo ul{padding-left:1.1rem}
 
-/* Contact : bloc sombre */
+/* Contact */
 .contact{background:var(--noir);color:var(--blanc);padding:7rem 0 8rem}
 .contact h2{font-size:clamp(2.6rem,7vw,5rem)}
 .contact a{color:var(--ciel)}
 .contact :focus-visible{outline-color:var(--ciel)}
 .contact .btn{border-color:var(--blanc);color:var(--blanc)}
 .contact .btn:hover{background:var(--blanc);color:var(--noir)}
+.contact .btn+.btn{margin-left:.8rem}
 footer{padding:2rem 0;border-top:1px solid var(--filet);color:var(--gris);font-size:.85rem;letter-spacing:.05em;text-align:center}
 
 /* Page projet */
 .projet-page section{border-top:0}
-.projet-page .wrap>a:first-child{display:inline-block;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--rouge)}
+.lien-retour{display:inline-block;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--rouge);transition:color .3s}
+.lien-retour:hover{color:var(--rouge)}
+.retour-bas{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--filet)}
+.projet{scroll-margin-top:6rem}
 .projet-page h1{font-size:clamp(3rem,9vw,6.5rem);margin:1.5rem 0 2rem}
 .infos{display:flex;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.5rem 0;border-top:1px solid var(--noir);border-bottom:1px solid var(--filet);color:var(--gris);font-size:.95rem}
 .infos b{display:block;margin-bottom:.2rem;color:var(--noir);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
 .visuels{display:grid;gap:1.5rem;margin-top:4rem}
-.visuel{aspect-ratio:16/10;background:var(--ciel);overflow:hidden}
-.visuel img{width:100%;height:100%;object-fit:cover}
+.visuel{display:flex;justify-content:center}
+.visuel img{width:auto;height:auto;max-width:100%;max-height:85vh;object-fit:contain}
+.projet-page img{width:auto;max-width:100%;max-height:85vh;margin:0 auto}
 
-/* ===== Pages À propos et Contact ===== */
+.filtres{display:flex;flex-wrap:wrap;gap:.6rem;margin:-1.5rem 0 3rem}
+.filtres button{padding:.6rem 1.3rem;border:1px solid rgba(244,245,248,.5);background:transparent;color:var(--blanc);font:500 .75rem var(--texte);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.filtres button:hover{border-color:var(--rose);color:var(--rose)}
+.filtres button[aria-pressed="true"]{background:var(--blanc);border-color:var(--blanc);color:var(--marine)}
+.projet[hidden]{display:none!important}
+.vide{font:italic 1.2rem var(--titre);color:var(--ciel)}
+.vide[hidden]{display:none}
+.projet.premier{grid-column:span 2}
+.projet.premier .forme{aspect-ratio:16/10}
+
+/* Pages À propos et Contact */
 .entete-page{padding:5rem 0 3rem;border-bottom:1px solid var(--noir)}
 .entete-page h1{font-size:clamp(3.5rem,11vw,8rem);line-height:.95;letter-spacing:-.03em}
 .entete-page h1::after{content:"";display:block;width:5rem;height:3px;background:var(--rouge);margin-top:1.5rem}
@@ -133,13 +128,13 @@ footer{padding:2rem 0;border-top:1px solid var(--filet);color:var(--gris);font-s
 .outils li{padding:.3rem 1rem;border:1px solid var(--marine);color:var(--marine);font-size:.9rem}
 .outils.web li{border-color:var(--rouge);color:var(--rouge)}
 
-.contact-mail{font-family:var(--titre);font-size:clamp(1.8rem,5.5vw,3.6rem);text-decoration-color:var(--rose);text-underline-offset:10px;word-break:break-word;transition:font-style .3s}
+.contact-mail{font-family:var(--titre);font-size:clamp(1.1rem,3vw,1.5rem);text-decoration-color:var(--rose);text-underline-offset:10px;word-break:break-word;transition:font-style .3s}
 .contact-mail:hover{font-style:italic}
 .contact-liens{list-style:none;padding:0;margin-top:3rem;display:grid;gap:.9rem}
 .contact-liens a{text-decoration:none;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ciel)}
 .contact-liens a:hover{border-color:var(--rose);color:var(--rose)}
 
-/* Apparition douce au défilement (navigateurs compatibles) */
+/* Animations & Media Queries globales */
 @keyframes monte{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .hero .wrap,.entete-page .wrap{animation:monte .9s ease-out both}
 @supports (animation-timeline:view()){
@@ -147,29 +142,14 @@ footer{padding:2rem 0;border-top:1px solid var(--filet);color:var(--gris);font-s
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-@media(max-width:900px){.grille{grid-template-columns:1fr 1fr}.projet:first-child{grid-column:span 2}}
+@media(max-width:900px){.grille{grid-template-columns:1fr 1fr}.projet.premier{grid-column:span 2}}
 @media(max-width:720px){
   .duo,.apropos-grille{grid-template-columns:1fr;gap:2.5rem}
   section{padding:4rem 0}
-  .grille{grid-template-columns:1fr}.projet:first-child{grid-column:auto}.projet:first-child .forme{aspect-ratio:4/5}
+  .grille{grid-template-columns:1fr}.projet.premier{grid-column:auto}.projet.premier .forme{aspect-ratio:4/5}
   .portrait{max-width:280px}
   .parcours li{grid-template-columns:1fr;gap:.2rem}
   nav{gap:1.2rem}
-}
-
-/* ===== Ajouts : titre d'accueil (Portfolio + calligraphie) et confort mobile ===== */
-:root{--script:'Pinyon Script','Snell Roundhand',cursive}
-.hero{min-height:88svh}
-.hero .wrap{width:100%}
-.hero h1{display:flex;flex-direction:column;align-items:center;font-size:1rem;letter-spacing:0}
-/* « designer graphique » en écriture calligraphique, posé un peu sur le mot Portfolio */
-.surtitre{position:relative;z-index:2;font-family:var(--script);font-weight:400;font-size:clamp(2.4rem,8.5vw,5.2rem);line-height:1;letter-spacing:0;color:var(--rouge);transform:rotate(-4deg);margin-bottom:-.35em}
-/* « Portfolio » en lettres linéales */
-.titre-portfolio{font-family:var(--texte);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(2.4rem,12vw,9.5rem);line-height:1;color:var(--noir)}
-.hero .nom{margin:0 auto 1.5rem;font-size:.85rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
-.contact .btn+.btn{margin-left:.8rem}
-
-@media(max-width:720px){
   .btn{display:block;text-align:center}
   .contact .btn+.btn{margin:1rem 0 0}
 }
@@ -180,4 +160,23 @@ footer{padding:2rem 0;border-top:1px solid var(--filet);color:var(--gris);font-s
   nav{gap:.9rem;font-size:.78rem}
   .titre-portfolio{letter-spacing:.03em}
   .contact{padding:4.5rem 0 5rem}
+}
+
+/* Visionneuse PDF */
+.pdf-viewer{margin:3rem auto;max-width:1100px}
+.pdf-scene{position:relative;width:fit-content;max-width:100%;margin:0 auto;background:var(--marine);outline-offset:4px}
+.pdf-scene canvas{display:block;background:#fff}
+.pdf-fleche{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;padding:0 0 .2rem;border:1px solid var(--blanc);border-radius:50%;background:rgba(20,28,43,.75);color:var(--blanc);font-size:1.9rem;line-height:1;cursor:pointer;transition:background .3s,opacity .3s}
+.pdf-prec{left:.75rem}
+.pdf-suiv{right:.75rem}
+.pdf-fleche:hover:not(:disabled){background:var(--rouge)}
+.pdf-fleche:disabled{opacity:.25;cursor:default}
+.pdf-fleche:focus-visible{outline:2px solid var(--rouge);outline-offset:3px}
+.pdf-barre{display:flex;justify-content:center;align-items:center;gap:.4rem 2rem;flex-wrap:wrap;text-align:center;margin:.9rem auto 0;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.pdf-lien{color:inherit;border-bottom:1px solid var(--rouge);text-decoration:none;padding-bottom:.15rem}
+.pdf-lien:hover{color:var(--rouge)}
+@media(max-width:480px){
+  .pdf-fleche{width:2.4rem;height:2.4rem;font-size:1.5rem}
+  .pdf-prec{left:.4rem}
+  .pdf-suiv{right:.4rem}
 }
