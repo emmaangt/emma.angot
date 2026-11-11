@@ -39,9 +39,34 @@ nav a{text-decoration:none;transition:all .3s}
 nav a:hover{font-family:var(--titre);font-style:italic;color:var(--rouge)}
 nav a[aria-current="page"]{font-family:var(--titre);font-style:italic;color:var(--rouge)}
 
-/* Boutons : rectangles à filet fin */
-.btn{display:inline-block;margin-top:2.5rem;padding:1rem 2rem;border:1px solid var(--marine);background:transparent;color:var(--marine);font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s}
-.btn:hover{background:var(--marine);color:var(--blanc)}
+/* ===== Style des filtres ===== */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 2rem 0;
+}
+
+.filtres button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--marine, #001f3f);
+  background: transparent;
+  color: var(--marine, #001f3f);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Changement d'état au survol et lorsque le filtre est actif */
+.filtres button:hover,
+.filtres button[aria-pressed="true"] {
+  background: var(--marine, #001f3f);
+  color: var(--blanc, #ffffff);
+}
 
 /* Accueil : titre monumental, centré */
 .hero{min-height:88vh;display:flex;align-items:center;text-align:center;padding:5rem 0;border-top:0}
