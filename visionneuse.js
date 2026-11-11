@@ -1,7 +1,7 @@
 /* Visionneuse PDF : affiche un PDF page par page, avec flèches, clavier et balayage tactile.
    Utilisation : <div class="pdf-viewer" data-pdf="pdf/mon-fichier.pdf"></div>
    Options : data-hauteur="160" règle la hauteur (en % de l'écran, 110 par défaut)
-             data-largeur="1200" règle la largeur maximale en px (1100 par défaut). */
+             data-largeur="1200" règle la largeur maximale en px (1100 par défaut).*/
 (function () {
   var CDN = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
   var boites = document.querySelectorAll('.pdf-viewer');
