@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="decor.css">
 </head>
 <body>
 
@@ -26,79 +27,152 @@
 <main>
   <section class="hero" id="accueil">
     <div class="wrap">
+      <a class="pastille" href="contact.html"><span>En recherche d'un <strong>stage de 10 semaines</strong> à partir du <strong>12 avril</strong></span></a>
       <h1><span class="surtitre">design graphique</span><span class="titre-portfolio">Portfolio</span></h1>
-<p class="nom">Emma Angot</p>
-      <p>Infographiste et maquettiste en formation, avec un goût pour la presse et l'édition. Je dessine et je développe mes propres sites.</p>
+      <p class="nom">Et si vous intégriez un profil polyvalent, capable de lier design graphique et code informatique ?</p>
+      <p>Passionnée par la presse et l'édition, je conçois des univers visuels à la fois imprimés et numériques. Du dessin à la mise en page, jusqu'au développement web de mes propres projets, j'allie sensibilité artistique et compétences techniques.</p>
+      <br>
+      <p class="nom">Emma Angot</p>
       <a class="btn" href="#projets">Voir mes projets</a>
+
     </div>
   </section>
-
+  <div class="bandeau" aria-hidden="true">
+  <div class="bandeau-piste">
+    <span>Affiches</span><span>Web</span><span>Logotype</span><span>Audiovisuel</span><span>Édition</span>
+    <span>Affiches</span><span>Web</span><span>Logotype</span><span>Audiovisuel</span><span>Édition</span>
+  </div>
+  </div>
   <section id="projets">
+    <img class="fille coin-bas-droite" src="images/fille-1.webp" alt="" loading="lazy">
     <div class="wrap">
       <h2>Projets</h2>
+      <div class="filtres" role="group" aria-label="Filtrer les projets par catégorie">
+        <button type="button" data-filtre="tous" aria-pressed="true">Tous</button>
+        <button type="button" data-filtre="affiches" aria-pressed="false">Affiches</button>
+        <button type="button" data-filtre="web" aria-pressed="false">Web</button>
+        <button type="button" data-filtre="logotype" aria-pressed="false">Logotype</button>
+        <button type="button" data-filtre="edition" aria-pressed="false">Édition</button>
+        <button type="button" data-filtre="audiovisuel" aria-pressed="false">Audiovisuel</button>
+        <button type="button" data-filtre="STD2A" aria-pressed="false">STD2A</button>
+        <button type="button" data-filtre="MMI" aria-pressed="false">MMI</button>
+        <button type="button" data-filtre="perso" aria-pressed="false">Perso</button>
+      </div>
+      
       <div class="grille">
         <!-- Pour ajouter un projet : copie un bloc <a class="projet">, change le titre, le type et l'image -->
-        <a class="projet" href="projet.brochure.html">
-          <div class="forme"><!-- <img src="images/brochure-danse.jpg" alt="Brochure de danse, double page"> --></div>
+        <a class="projet" id="brochure-danse" href="projet.brochure.html">
+          <div class="forme"> <img src="images/brochurep10.webp" alt="Page de fin de la Brochure"></div>
           <h3>Brochure danse</h3>
           <span>Print, mise en page</span>
         </a>
-        <a class="projet" href="projet.mytheme.html">
-          <div class="forme"><!-- <img src="images/mythe-me.jpg" alt="Affiche du court-métrage Mythe Me"> --></div>
+        <a class="projet" id="mythe-me" href="projet.mytheme.html" data-categorie="audiovisuel MMI">
+          <div class="forme"><img src="images/mythe-me-miniature.webp" alt="Affiche du court-métrage Mythe Me"></div>
           <h3>Mythe Me</h3>
           <span>Court-métrage</span>
         </a>
-        <a class="projet" href="projet.logo.html">
-          <div class="forme"> <img src="images/CGByKelynsha.jpg" alt="Logos récents"></div>
-          <h3>Logos</h3>
+        <a class="projet" id="cgbk" href="projet.cgbk.html" data-categorie="logotype perso">
+          <div class="forme"> <img src="images/CGByKelynsha.webp" alt="Logos récents"></div>
+          <h3>By Kelynsha</h3>
           <span>Identité visuelle</span>
         </a>
-        <a class="projet" href="projet.affiche.html">
-          <div class="forme"><!-- <img src="images/affiche.jpg" alt="Affiche"> --></div>
-          <h3>Affiche</h3>
+        <a class="projet" id="studi" href="projet.cgstudi.html" data-categorie="logotype MMI">
+          <div class="forme"> <img src="images/Studi.webp" alt="Logos récents"></div>
+          <h3>Studigitalis</h3>
+          <span>Identité visuelle</span>
+        </a>
+        <a class="projet" id="cgmmi" href="projet.cgmmi.html" data-categorie="logotype MMI">
+          <div class="forme"> <img src="images/miniammi.webp" alt="Logos récents"></div>
+          <h3>Rebranding MMI</h3>
+          <span>Identité visuelle</span>
+        </a>
+        <a class="projet" id="avatar" href="projet.afficheME.html" data-categorie="affiches MMI">
+          <div class="forme"> <img src="images/Me.webp" alt="Affiche"> </div>
+          <h3>Represente-moi</h3>
           <span>Print</span>
         </a>
-        <a class="projet" href="projet.magazine.html">
-          <div class="forme"> <img src="images/article.jpg" alt="Page de magazine"></div>
-          <h3>Page de magazine</h3>
+        <a class="projet" id="SR" href="projet.afficheSR.html" data-categorie="affiches MMI">
+          <div class="forme"> <img src="images/SRPartage.webp" alt="Affiche"></div>
+          <h3>Sécurité Routière</h3>
+          <span>Print</span>
+        </a>
+        <!--<a class="projet" id="lay" href="projet.afficheL.html" data-categorie="affiches perso">
+          <div class="forme"> <img src="images/affiche.webp" alt="Affiche"></div>
+          <h3>Promotion tournée</h3>
+          <span>Print</span>
+        </a> -->
+        <a class="projet" id="mag" href="projet.magazine.html" data-categorie="edition MMI">
+          <div class="forme"> <img src="images/article.webp" alt="Page de magazine"></div>
+          <h3>Robot Collectif</h3>
           <span>Édition, maquette</span>
         </a>
-	<a class="projet" href="projet.depliant.html">
-          <div class="forme"><!-- <img src="images/depliant.jpg" alt="Dépliant pour un photographe"> --></div>
-          <h3>Dépliant</h3>
+        <a class="projet" id="mythe-me" href="projet.motion.html" data-categorie="audiovisuel MMI">
+          <div class="forme"><img src="images/motion.webp" alt="Affiche du court-métrage Mythe Me"></div>
+          <h3>Promotion robots domestiques</h3>
+          <span>Court-métrage</span>
+        </a>
+	      <a class="projet" id="depliant" href="projet.depliant.html" data-categorie="edition STD2A">
+          <div class="forme"><img src="images/Photo 2aa.webp" alt="Dépliant pour un photographe"></div>
+          <h3>RED</h3>
           <span>Édition, maquette</span>
         </a>
-	<a class="projet" href="projet.carnet.html">
-          <div class="forme"><!-- <img src="images/carnet.jpg" alt="Carnet de voyage"> --></div>
+	      <!--<a class="projet" id="carnet" href="projet.carnet.html" data-categorie="edition STD2A">
+          <div class="forme"><img src="images/carnet.webp" alt="Carnet de voyage"></div>
           <h3>Carnet de voyage</h3>
           <span>Édition, maquette</span>
-        </a>
-        <a class="projet" href="projet.site.html">
-          <div class="forme"><!-- <img src="images/site-bijouterie.jpg" alt="Capture du site de la bijouterie"> --></div>
-          <h3>Site bijouterie</h3>
+        </a>-->
+        <a class="projet" id="site" href="projet.site.html" data-categorie="web" MMI>
+          <div class="forme"><img src="images/site-minia.webp" alt="Capture du site de la bijouterie"></div>
+          <h3>Site vitrine bijouterie</h3>
           <span>Développement web, HTML et CSS</span>
         </a>
-        <a class="projet" href="projet.skillshare.html">
-          <div class="forme"><img src="images/sale.jpg" alt="Premier Projet skillshare"></div>
+        <a class="projet" id="ss" href="projet.skillshare.html" data-categorie="edition perso">
+          <div class="forme"><img src="images/sale.webp" alt="Premier Projet skillshare"></div>
           <h3>skillshare</h3>
           <span>Print, mise en page, identité visuelle</span>
+        </a>
+        <a class="projet" id="ss" href="" data-categorie="edition web audiovisuel affiches logotype MMI STD2A perso">
+          <div class="forme"><!--<img src="" alt="">--></div>
+          <h3>Et d'autres à suivre</h3>
+          <span>Print, audiovisuel, web</span>
         </a>
       </div>
     </div>
   </section>
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <p>Un projet, un stage, une question ? Écrivez-moi à <a href="mailto:e.angot@icloud.com">e.angot@icloud.com</a>.</p>
-	<p style="margin-top:1rem"><a href="contact.html">Voir tous mes contacts</a></p>
-      <p style="margin-top:1rem"><a href="cv.pdf">Télécharger mon CV</a></p>
+  
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Un projet, un stage, une question ? Écrivez-moi.</p>
+
+    <div class="contact-infos">
+      <a class="lien-contact mail" href="contact.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+        Me contacter
+      </a>
+
+      <ul class="contact-liste">
+        <li>
+          <a class="lien-contact" href="cv.pdf">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>
+            Télécharger mon CV
+          </a>
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">© 2026 Emma Angot</div>
 </footer>
-
+<script src="visionneuse.js"></script>
+<script src="filtres.js"></script>
+<script>
+  document.querySelectorAll('[data-nb-projets]').forEach(function (el) {
+    el.textContent = document.querySelectorAll('.grille .projet').length;
+  });
+</script>
 </body>
 </html>
