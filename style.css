@@ -1,0 +1,158 @@
+/* ===== Charte : couleurs du Portfolio + design éditorial du mini-site ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root{
+  --blanc:#f4f5f8;   /* papier, blanc légèrement bleuté */
+  --gris:#7d8596;
+  --marine:#22334c;  /* bleu principal */
+  --ciel:#9fb3d1;    /* bleu clair */
+  --rouge:#b8434e;   /* rouge, à doser */
+  --rose:#e9a0a6;    /* rouge léger, pour les touches */
+  --noir:#141c2b;    /* encre bleu nuit */
+  --filet:rgba(20,28,43,.2);
+  --titre:'Playfair Display',Georgia,serif;
+  --texte:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--blanc);color:var(--noir);font:300 1.05rem/1.7 var(--texte);-webkit-font-smoothing:antialiased;counter-reset:sec}
+img{max-width:600px;max-height:800px;display:block}
+a{color:inherit}
+::selection{background:var(--marine);color:var(--blanc)}
+:focus-visible{outline:2px solid var(--rouge);outline-offset:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+section{padding:6rem 0;border-top:1px solid var(--filet)}
+h1,h2,h3{font-family:var(--titre);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+p{max-width:62ch}
+
+/* Titres de section numérotés : 01. 02. */
+main>section>.wrap>h2{font-size:clamp(2.4rem,6vw,4.2rem);margin-bottom:3rem}
+main>section>.wrap>h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero) ".";display:block;font-family:var(--texte);font-size:.8rem;font-weight:500;letter-spacing:.2em;color:var(--rouge);margin-bottom:.8rem}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:50;padding:1.1rem 0;background:rgba(244,245,248,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--filet)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.logo{font-family:var(--texte);font-weight:500;text-decoration:none;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase}
+.logo::after{content:".";color:var(--rouge)}
+nav{display:flex;gap:2rem;font-size:.85rem}
+nav a{text-decoration:none;transition:all .3s}
+nav a:hover{font-family:var(--titre);font-style:italic;color:var(--rouge)}
+nav a[aria-current="page"]{font-family:var(--titre);font-style:italic;color:var(--rouge)}
+
+/* Boutons : rectangles à filet fin */
+.btn{display:inline-block;margin-top:2.5rem;padding:1rem 2rem;border:1px solid var(--marine);background:transparent;color:var(--marine);font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn:hover{background:var(--marine);color:var(--blanc)}
+
+/* Accueil : titre monumental, centré */
+.hero{min-height:88vh;display:flex;align-items:center;text-align:center;padding:5rem 0;border-top:0}
+.hero h1{font-size:clamp(4rem,14vw,10rem);line-height:.95;letter-spacing:-.03em;margin-bottom:2rem}
+.hero h1::after{content:"";display:block;width:5rem;height:3px;background:var(--rouge);margin:2rem auto 0}
+.hero p{margin:0 auto;font-size:1.25rem}
+
+/* Projets : section sombre, grille asymétrique */
+#projets{background:var(--marine);color:var(--blanc)}
+#projets>.wrap>h2::before{color:var(--rose)}
+.grille{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem 1.5rem;align-items:start}
+.projet{text-decoration:none;display:block}
+.projet:first-child{grid-column:span 2}
+.forme{aspect-ratio:4/5;overflow:hidden;margin-bottom:1.2rem;background:var(--noir)}
+.projet:first-child .forme{aspect-ratio:16/10.2}
+.forme img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.projet:hover .forme img{transform:scale(1.05)}
+.projet:nth-child(4n+2) .forme{background:var(--ciel)}
+.projet:nth-child(4n+3) .forme{background:var(--gris)}
+.projet:nth-child(4n) .forme{background:var(--rose)}
+.projet h3{font-size:1.7rem;transition:all .3s}
+.projet span{display:block;margin-top:.4rem;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ciel)}
+.projet:hover h3{font-style:italic;color:var(--rose)}
+
+/* À propos */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.duo h3{font-size:1.3rem;margin-bottom:.8rem}
+.duo ul{padding-left:1.1rem}
+
+/* Contact : bloc sombre */
+.contact{background:var(--noir);color:var(--blanc);padding:7rem 0 8rem}
+.contact h2{font-size:clamp(2.6rem,7vw,5rem)}
+.contact a{color:var(--ciel)}
+.contact :focus-visible{outline-color:var(--ciel)}
+.contact .btn{border-color:var(--blanc);color:var(--blanc)}
+.contact .btn:hover{background:var(--blanc);color:var(--noir)}
+footer{padding:2rem 0;border-top:1px solid var(--filet);color:var(--gris);font-size:.85rem;letter-spacing:.05em;text-align:center}
+
+/* Page projet */
+.projet-page section{border-top:0}
+.projet-page .wrap>a:first-child{display:inline-block;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--rouge)}
+.projet-page h1{font-size:clamp(3rem,9vw,6.5rem);margin:1.5rem 0 2rem}
+.infos{display:flex;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.5rem 0;border-top:1px solid var(--noir);border-bottom:1px solid var(--filet);color:var(--gris);font-size:.95rem}
+.infos b{display:block;margin-bottom:.2rem;color:var(--noir);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.visuels{display:grid;gap:1.5rem;margin-top:4rem}
+.visuel{aspect-ratio:16/10;background:var(--ciel);overflow:hidden}
+.visuel img{width:100%;height:100%;object-fit:cover}
+
+/* ===== Pages À propos et Contact ===== */
+.entete-page{padding:5rem 0 3rem;border-bottom:1px solid var(--noir)}
+.entete-page h1{font-size:clamp(3.5rem,11vw,8rem);line-height:.95;letter-spacing:-.03em}
+.entete-page h1::after{content:"";display:block;width:5rem;height:3px;background:var(--rouge);margin-top:1.5rem}
+
+.apropos-grille{display:grid;grid-template-columns:5fr 7fr;gap:5rem;align-items:start}
+.portrait{aspect-ratio:3/4;background:var(--marine);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.apropos-texte h2{font-size:1.9rem;font-style:italic;margin:3rem 0 1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--noir)}
+.apropos-texte h2:first-child{margin-top:0}
+.apropos-texte p+p{margin-top:1rem}
+.parcours{list-style:none;padding:0}
+.parcours li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--filet)}
+.parcours b{font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--rouge)}
+.outils{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0}
+.outils li{padding:.3rem 1rem;border:1px solid var(--marine);color:var(--marine);font-size:.9rem}
+.outils.web li{border-color:var(--rouge);color:var(--rouge)}
+
+.contact-mail{font-family:var(--titre);font-size:clamp(1.8rem,5.5vw,3.6rem);text-decoration-color:var(--rose);text-underline-offset:10px;word-break:break-word;transition:font-style .3s}
+.contact-mail:hover{font-style:italic}
+.contact-liens{list-style:none;padding:0;margin-top:3rem;display:grid;gap:.9rem}
+.contact-liens a{text-decoration:none;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ciel)}
+.contact-liens a:hover{border-color:var(--rose);color:var(--rose)}
+
+/* Apparition douce au défilement (navigateurs compatibles) */
+@keyframes monte{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero .wrap,.entete-page .wrap{animation:monte .9s ease-out both}
+@supports (animation-timeline:view()){
+  .projet,.apropos-grille>*,.contact .wrap{animation:monte linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media(max-width:900px){.grille{grid-template-columns:1fr 1fr}.projet:first-child{grid-column:span 2}}
+@media(max-width:720px){
+  .duo,.apropos-grille{grid-template-columns:1fr;gap:2.5rem}
+  section{padding:4rem 0}
+  .grille{grid-template-columns:1fr}.projet:first-child{grid-column:auto}.projet:first-child .forme{aspect-ratio:4/5}
+  .portrait{max-width:280px}
+  .parcours li{grid-template-columns:1fr;gap:.2rem}
+  nav{gap:1.2rem}
+}
+
+/* ===== Ajouts : titre d'accueil (Portfolio + calligraphie) et confort mobile ===== */
+:root{--script:'Pinyon Script','Snell Roundhand',cursive}
+.hero{min-height:88svh}
+.hero .wrap{width:100%}
+.hero h1{display:flex;flex-direction:column;align-items:center;font-size:1rem;letter-spacing:0}
+/* « designer graphique » en écriture calligraphique, posé un peu sur le mot Portfolio */
+.surtitre{position:relative;z-index:2;font-family:var(--script);font-weight:400;font-size:clamp(2.4rem,8.5vw,5.2rem);line-height:1;letter-spacing:0;color:var(--rouge);transform:rotate(-4deg);margin-bottom:-.35em}
+/* « Portfolio » en lettres linéales */
+.titre-portfolio{font-family:var(--texte);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(2.4rem,12vw,9.5rem);line-height:1;color:var(--noir)}
+.hero .nom{margin:0 auto 1.5rem;font-size:.85rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
+.contact .btn+.btn{margin-left:.8rem}
+
+@media(max-width:720px){
+  .btn{display:block;text-align:center}
+  .contact .btn+.btn{margin:1rem 0 0}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.1rem}
+  section{padding:3.5rem 0}
+  .logo{font-size:.72rem;letter-spacing:.14em}
+  nav{gap:.9rem;font-size:.78rem}
+  .titre-portfolio{letter-spacing:.03em}
+  .contact{padding:4.5rem 0 5rem}
+}

@@ -1,0 +1,82 @@
+/* Décor créatif : à charger APRÈS style.css */
+
+/* ===== 1. Petites images PNG (détourées) façon stickers ===== */
+.hero,#projets,.contact,.apropos-grille,.projet-page .wrap{position:relative}
+.fille{
+  position:absolute;z-index:3;
+  width:var(--t,clamp(80px,11vw,150px));
+  height:auto;max-width:none;max-height:none;pointer-events:none;
+  filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 8px 12px rgba(20,28,43,.25));
+  animation:flotte 6s ease-in-out infinite;
+}
+@keyframes flotte{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+.coin-haut-droite{top:-3rem;right:5%}
+.coin-haut-gauche{top:-3rem;left:5%}
+.coin-bas-droite{bottom:-2rem;right:5%}
+.coin-bas-gauche{bottom:-2rem;left:5%}
+.cache-mobile{display:none}
+@media(min-width:721px){.cache-mobile{display:block}}
+
+/* ===== 2. Grain de papier ===== */
+body::after{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:var(--grain);mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* ===== 3. Trait rouge tracé au feutre sous les titres ===== */
+.hero h1::after,.entete-page h1::after{width:8rem;height:14px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' fill='none' stroke='%23b8434e' stroke-linecap='round'><path d='M3 6 C30 4.2 62 6.6 117 4' stroke-width='3'/><path d='M14 9 C48 8 82 9.2 106 7.6' stroke-width='1.5' opacity='.65'/></svg>") no-repeat center/contain}
+.entete-page h1::after{margin-left:0}
+
+/* ===== 4. Bandeau de mots qui défile ===== */
+.bandeau{overflow:hidden;padding:1.1rem 0;border-block:1px solid var(--filet)}
+.bandeau-piste{display:flex;gap:3rem;width:max-content;white-space:nowrap;font:italic 1.6rem var(--titre);animation:defile 30s linear infinite}
+.bandeau-piste span::after{content:"\2726";margin-left:3rem;color:var(--rouge);font-style:normal}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ===== 5. Page À propos : photo plus petite ===== */
+@media(min-width:721px){
+  .apropos-grille{grid-template-columns:minmax(0,300px) 1fr;gap:4rem}
+  .portrait{max-width:300px}
+}
+
+/* ===== 6. Mots surlignés : <mark> ===== */
+mark{--s:rgba(233,160,166,.7);color:inherit;padding:.05em .35em;margin:0 -.1em;border-radius:.2em .5em .3em .6em;
+  background:linear-gradient(104deg,transparent .5em,var(--s) .5em,var(--s) calc(100% - .35em),transparent calc(100% - .35em));
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.bleu{--s:rgba(159,179,209,.75)}
+mark.rouge{--s:var(--rouge);color:var(--blanc)}
+
+/* ===== 7. Page contact : texte d'accroche et liens avec icônes SVG ===== */
+.contact .wrap>h2.accroche{font-size:clamp(1.8rem,4.5vw,3rem);max-width:24ch;margin-bottom:1.5rem}
+.contact .wrap>h2.accroche::before{display:none}
+.contact-infos{display:block;width:100%;margin-top:2.5rem}
+.lien-contact svg{flex:none;width:1.5em;height:1.5em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.lien-contact{display:inline-flex;align-items:center;gap:.8rem;max-width:100%;color:var(--ciel);text-decoration:none;transition:color .3s}
+.lien-contact:hover{color:var(--rose)}
+.lien-contact.mail{display:flex;width:fit-content;margin-bottom:.7rem;font:italic clamp(1.1rem,3vw,1.5rem) var(--titre);overflow-wrap:anywhere}
+.lien-contact.mail svg{width:1.1em;height:1.1em}
+.contact-liste{display:flex;flex-wrap:wrap;gap:1.2rem 2.5rem;list-style:none;padding:0;margin:1.8rem 0 0}
+.contact-liste .lien-contact{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;padding-bottom:.25rem;border-bottom:1px solid var(--ciel)}
+.contact-liste .lien-contact:hover{border-color:var(--rose)}
+
+/* ===== 8. Pastille stage et annonce mobile ===== */
+.annonce{display:block;padding:.65rem 1rem;background:var(--rouge);color:var(--blanc);text-align:center;font-size:.78rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:background .3s}
+.annonce:hover{background:var(--marine)}
+@media(min-width:721px){.annonce.mobile-seulement{display:none}}
+
+.pastille{position:absolute;z-index:4;top:2.5rem;right:7%;width:clamp(130px,16vw,190px);aspect-ratio:1;display:grid;place-items:center;padding:1.3rem;
+  border-radius:50%;background:var(--rouge);color:var(--blanc);text-align:center;text-decoration:none;
+  font:500 clamp(.72rem,1.1vw,.88rem)/1.35 var(--texte);box-shadow:0 10px 24px rgba(20,28,43,.25);
+  transform:rotate(-9deg);animation:flotte-p 6s ease-in-out infinite;transition:background .3s}
+.pastille::before{content:"";position:absolute;inset:6px;border:1.5px dashed rgba(255,255,255,.7);border-radius:50%}
+.pastille strong{font:italic 600 1.3em var(--titre)}
+.pastille:hover{background:var(--marine)}
+@keyframes flotte-p{0%,100%{transform:translateY(0) rotate(-9deg)}50%{transform:translateY(-8px) rotate(-5deg)}}
+@media(max-width:720px){.pastille{display:none}}
+
+/* ===== 9. Compteurs de projets ===== */
+.compteur-projets,.hero .compteur-projets{margin:1.5rem auto 0;font-size:.8rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--rouge)}
+.compteur-projets strong{margin-right:.5rem;font:italic 400 2rem/1 var(--titre);letter-spacing:0;color:var(--noir)}
+#projets .compteur-projets{margin:-1.5rem 0 2.5rem;color:var(--rose)}
+#projets .compteur-projets strong{color:var(--blanc)}
+
+.filtres-compteur{margin-left:auto;align-self:center;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);white-space:nowrap}
+.filtres-compteur strong{margin-right:.4rem;font:italic 400 1.7rem/1 var(--titre);letter-spacing:0;color:var(--blanc)}
